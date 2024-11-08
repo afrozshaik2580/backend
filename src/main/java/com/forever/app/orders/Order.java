@@ -17,12 +17,10 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
-@Data
-@NoArgsConstructor
+//@Data
+//@NoArgsConstructor
 @Table(name = "orders")
 public class Order {
 
@@ -62,6 +60,84 @@ public class Order {
 	public void setOrderItems(List<CartItem> orderItems) {
         this.orderItems = new ArrayList<>(orderItems); // Clone the collection
     }
+
+	public Order() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Order(Long orderId, Long userId, LocalDateTime orderDate, String status, String paymentMethod,
+			List<CartItem> orderItems, double totalPrice, Address address) {
+		super();
+		this.orderId = orderId;
+		this.userId = userId;
+		this.orderDate = orderDate;
+		this.status = status;
+		this.paymentMethod = paymentMethod;
+		this.orderItems = orderItems;
+		this.totalPrice = totalPrice;
+		this.address = address;
+	}
+
+	public Long getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(Long orderId) {
+		this.orderId = orderId;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public LocalDateTime getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(LocalDateTime orderDate) {
+		this.orderDate = orderDate;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getPaymentMethod() {
+		return paymentMethod;
+	}
+
+	public void setPaymentMethod(String paymentMethod) {
+		this.paymentMethod = paymentMethod;
+	}
+
+	public double getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public List<CartItem> getOrderItems() {
+		return orderItems;
+	}
 
 
 }

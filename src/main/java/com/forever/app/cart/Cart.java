@@ -10,12 +10,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
-@Data
-@NoArgsConstructor
+//@Data
+//@NoArgsConstructor
 public class Cart {
 
 	@Id
@@ -30,6 +28,42 @@ public class Cart {
 	public Cart(Long userId) {
 		super();
 		this.userId = userId;
+	}
+
+	public Cart() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Cart(Long cartId, Long userId, List<CartItem> items) {
+		super();
+		this.cartId = cartId;
+		this.userId = userId;
+		this.items = items;
+	}
+
+	public Long getCartId() {
+		return cartId;
+	}
+
+	public void setCartId(Long cartId) {
+		this.cartId = cartId;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public List<CartItem> getItems() {
+		return items;
+	}
+
+	public void setItems(List<CartItem> items) {
+		this.items = items;
 	}
 
 }

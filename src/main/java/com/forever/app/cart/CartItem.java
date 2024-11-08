@@ -8,10 +8,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import lombok.Data;
 
 @Entity
-@Data
+//@Data
 public class CartItem {
 	
 	@Id
@@ -25,5 +24,47 @@ public class CartItem {
 	private String size;
 	private double unitPrice;
 	private int quantity;
+	public CartItem() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public CartItem(Long id, Product product, String size, double unitPrice, int quantity) {
+		super();
+		this.id = id;
+		this.product = product;
+		this.size = size;
+		this.unitPrice = unitPrice;
+		this.quantity = quantity;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Product getProduct() {
+		return product;
+	}
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	public String getSize() {
+		return size;
+	}
+	public void setSize(String size) {
+		this.size = size;
+	}
+	public double getUnitPrice() {
+		return unitPrice;
+	}
+	public void setUnitPrice(double unitPrice) {
+		this.unitPrice = unitPrice;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 
 }
